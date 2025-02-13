@@ -621,6 +621,53 @@ int bai20(int a[], int n, int *x, int *y)
 }
 
 
+int bai21(int a[], int n)
+{
+    if (n < 3)
+    {
+        printf("Mang rong:\n");
+        return -1;
+    }
+
+    int vt = -1;
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i] == (a[i - 1] * a[i + 1]))
+        {
+            vt = i;
+        }
+    }
+
+    return vt;
+}
+
+int bai22(int a[], int n)
+{
+    if (n <= 0)
+    {
+        printf(" Mang rong\n");
+        return 0;
+    }
+
+    int tam = -INT_MAX;
+    int kq = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i] % 2 != 0 )
+        {
+            printf(" %d", a[i]);
+            if (a[i] > tam)
+            {
+                tam = a[i];
+                kq = a[i];
+            }
+
+        }
+    }
+    return kq;
+
+}
+
 // hàm xuất mảng 1 chiều
 void xuatMang1Chieu(float a[], int n)
 {
@@ -648,6 +695,7 @@ int main()
     /*float a[10];*/
     int a[10];
     int n;
+    nhapMang1Chieu_songuyen(a, n);
     /*nhapMang1Chieu(a, n);*/
     //lk_sochan(a, n);
     //lk_soam(a, n);
@@ -672,17 +720,14 @@ int main()
     printf("bai18: [%.1f, %.1f]",b ,c);*/
     /*int x = bai19(a, n);
     printf("[-%d, %d]", x, x);*/
-    int x, y;
-    printf("Nhap gia tri x: ");
-    scanf_s("%d", &x);
-    printf("Nhap gia tri y: ");
-    scanf_s("%d", &y);
-    nhapMang1Chieu_songuyen(a, n);
-    printf("bai20: %d", bai20(a, n, &x, &y));
+    //int x, y;
+    //printf("Nhap gia tri x: ");
+    //scanf_s("%d", &x);
+    //printf("Nhap gia tri y: ");
+    //scanf_s("%d", &y);
+    //printf("bai20: %d", bai20(a, n, &x, &y));
+    printf("Bai22: %d", bai22(a, n));
     xuatMang1Chieu_songuyen(a, n);
-
     /*xuatMang1Chieu(a, n);*/
 
 }
-
-// hihi
